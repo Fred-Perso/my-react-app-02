@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import client from './contentfulConfig';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
