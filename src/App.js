@@ -4,7 +4,7 @@ import ContentDisplay from './ContentDisplay';
 const App = () => {
   return (
     <div>
-      <h1>My Contentful App</h1>
+      <h1>My Contentful Ap6</h1>
       <ContentDisplay />
     </div>
   );
