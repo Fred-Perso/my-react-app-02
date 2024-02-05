@@ -49,8 +49,8 @@ const ContentDisplay = () => {
 
   return (
     <div>
-      <p>Fly: {typeof content.fly === 'object' ? JSON.stringify(content.fly) : content.fly}</p>
-      <div>Rich: {content.rich}</div>
+      <h1> {typeof content.fly === 'object' ? JSON.stringify(content.fly) : content.fly}</h1>
+      <div> {content.rich}</div>
       <div>{content.photo}</div>
     </div>
   );
