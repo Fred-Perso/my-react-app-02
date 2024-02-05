@@ -11,15 +11,22 @@ const ContentDisplay = () => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const response = await client.getEntry('3jhKR5PJNniuvqy8882hYU'); // Utilisez l'ID correct de votre entrée
+        const response = await client.getEntry('3jhKR5PJNniuvqy8882hYU');
 
-        // Ajoutez une condition pour éviter l'erreur
-        if (response.fields && response.fields.fly && response.fields.rich) {
-          // Utilisez un seul setContent avec un objet contenant tous les champs
-          setContent({
-            fly: response.fields.fly,
-            rich: response.fields.rich,
-          });
+        if (response.fields) {
+          const newContent = {};
+
+          if (response.fields.fly) {
+            newContent.fly = response.fields.fly;
+          }
+
+          if (response.fields.rich) {
+            newContent.rich = response.fields.rich;
+          }
+
+          setContent(newContent);
+        } else {
+          console.error('No fields found in Contentful response:', response);
         }
       } catch (error) {
         console.error('Error fetching Contentful content:', error);
@@ -31,7 +38,6 @@ const ContentDisplay = () => {
 
   return (
     <div>
-      {/* Utilisez les valeurs de l'état dans votre composant */}
       <p>Fly: {content.fly}</p>
       <p>Rich: {content.rich}</p>
     </div>
