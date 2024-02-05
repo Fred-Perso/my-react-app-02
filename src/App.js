@@ -1,9 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 
-
+function MyButton() {
+  return (
+    <button>I'm a button</button>
+  );
+}
 
 function App() {
+
+
   return (
     <div className="App">
       <header className="App-header">
@@ -19,6 +25,7 @@ function App() {
         >
           Ma première fonction
         </a>
+         <MyButton />
       </header>
     </div>
   );
