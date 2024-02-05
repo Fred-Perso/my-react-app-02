@@ -10,7 +10,7 @@ const ContentDisplay = () => {
       try {
         const response = await client.getEntry('helloWorld');
         // Vérifiez si 'helloWorld' existe dans la réponse avant d'accéder à ses champs
-        if (response.fields && response.fields.helloWorld) {
+        if (response.fields && response.fields.titre) {
           setContent(response.fields.helloWorld);
         } else {
           console.error('Error: "helloWorld" not found in Contentful response.');
