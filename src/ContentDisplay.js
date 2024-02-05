@@ -9,12 +9,12 @@ const ContentDisplay = () => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const response = await client.getEntry('titre');
-        // Vérifiez si 'helloWorld' existe dans la réponse avant d'accéder à ses champs
-        if (response.fields && response.fields.Titre) {
-          setContent(response.fields.helloWorld);
+        const response = await client.getEntry('helloWorld'); // Utilisez le bon ID d'entrée si nécessaire
+        // Vérifiez si le champ "titre" existe dans la réponse avant d'accéder à ses données
+        if (response.fields && response.fields.titre) {
+          setContent(response.fields.titre);
         } else {
-          setError('Error: "helloWorld" not found in Contentful response.');
+          setError('Error: "titre" not found in Contentful response.');
         }
       } catch (error) {
         console.error('Error fetching Contentful content:', error);
