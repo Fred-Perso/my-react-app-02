@@ -38,8 +38,8 @@ const ContentDisplay = () => {
 
   return (
     <div>
-      <p>Fly: {content.fly}</p>
-      <p>Rich: {content.rich}</p>
+      <p>Fly: {typeof content.fly === 'object' ? JSON.stringify(content.fly) : content.fly}</p>
+      <p>Rich: {typeof content.rich === 'object' ? JSON.stringify(content.rich) : content.rich}</p>
     </div>
   );
 };
