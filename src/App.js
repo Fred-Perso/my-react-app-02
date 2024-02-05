@@ -23,7 +23,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Ma première fonction
+          Ma première fonction 02
         </a>
          <MyButton />
       </header>
