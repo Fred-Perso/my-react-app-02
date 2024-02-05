@@ -8,7 +8,7 @@ const ContentDisplay = () => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const response = await client.getEntry('3jhKR5PJNniuvqy8882hYU'); // Utilisez l'ID correct de votre entrée
+        const response = await client.getEntry('0khq8Gk0Qe688f5fDyFotp'); // Utilisez l'ID correct de votre entrée
         setContent(response.fields.titre['en-US']); // Assurez-vous que 'en-US' est correct pour votre locale
       } catch (error) {
         console.error('Error fetching Contentful content:', error);
