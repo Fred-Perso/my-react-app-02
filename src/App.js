@@ -1,37 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import client from './contentfulConfig';
-import './App.css';
+import React from 'react';
+import ContentDisplay from './ContentDisplay';
 
-function App() {
-
-
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await client.getEntries();
-        setData(response.items);
-      } catch (error) {
-        console.error('Error fetching Contentful data:', error);
-      }
-    }
-
-    fetchData();
-  }, []);
-
+const App = () => {
   return (
     <div>
-      <h1>My Contentful React App</h1>
-      {data && (
-        <ul>
-          {data.map((entry) => (
-            <li key={entry.sys.id}>{entry.fields.helloWorld}</li>
-          ))}
-        </ul>
-      )}
+      <h1>My Contentful App</h1>
+      <ContentDisplay />
     </div>
   );
-}
+};
 
 export default App;
