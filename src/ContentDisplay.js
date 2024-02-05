@@ -9,7 +9,7 @@ const ContentDisplay = () => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const response = await client.getEntry('helloWorld'); // Utilisez le bon ID d'entrée si nécessaire
+        const response = await client.getEntry('Titre'); // Utilisez le bon ID d'entrée si nécessaire
         // Vérifiez si le champ "titre" existe dans la réponse avant d'accéder à ses données
         if (response.fields && response.fields.titre) {
           setContent(response.fields.titre);
