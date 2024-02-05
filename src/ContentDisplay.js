@@ -10,7 +10,7 @@ const ContentDisplay = () => {
         const response = await client.getEntry('3jhKR5PJNniuvqy8882hYU');
         setContent({
           fly: response.fields['fly'], // Assurez-vous d'utiliser la locale correcte
-         
+          rich: response.fields['rich'],
         });
       } catch (error) {
         console.error('Error fetching Contentful content:', error);
@@ -23,6 +23,7 @@ const ContentDisplay = () => {
   return (
     <div>
       <p>Fly: {content.fly}</p>
+  <p>Rich: {content.rich}</p>
      
     </div>
   );
