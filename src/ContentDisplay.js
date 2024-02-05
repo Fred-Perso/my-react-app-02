@@ -6,6 +6,7 @@ const ContentDisplay = () => {
   const [content, setContent] = useState({
     fly: 'Valeur par défaut pour fly',
     rich: 'Valeur par défaut pour rich',
+    asset: null, // Ajout du champ asset
   });
 
   useEffect(() => {
@@ -24,6 +25,10 @@ const ContentDisplay = () => {
             newContent.rich = documentToReactComponents(response.fields.rich);
           }
 
+          if (response.fields.asset) {
+            newContent.photo = response.fields.photo.fields.file.url; // Modification selon la structure de votre asset
+          }
+
           setContent(newContent);
         } else {
           console.error('No fields found in Contentful response:', response);
@@ -40,6 +45,7 @@ const ContentDisplay = () => {
     <div>
       <p>Fly: {typeof content.fly === 'object' ? JSON.stringify(content.fly) : content.fly}</p>
       <div>Rich: {content.rich}</div>
+      {content.photo && <img src={content.photo} alt="Contentful Photo" />} {/* Affichage de l'asset */}
     </div>
   );
 };
