@@ -1,32 +1,36 @@
+import React, { useEffect, useState } from 'react';
+import client from './contentfulConfig';
 import logo from './logo.svg';
 import './App.css';
-
-function MyButton() {
-  return (
-    <button>Facimprimeur.fr</button>
-  );
-}
 
 function App() {
 
 
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await client.getEntries();
+        setData(response.items);
+      } catch (error) {
+        console.error('Error fetching Contentful data:', error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Ma première fonction 02
-        </a>
-         <MyButton />
-      </header>
+    <div>
+      <h1>My Contentful React App</h1>
+      {data && (
+        <ul>
+          {data.map((entry) => (
+            <li key={entry.sys.id}>{entry.fields.helloWorld}</li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
