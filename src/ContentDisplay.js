@@ -1,5 +1,6 @@
 // ContentDisplay.js
 import React, { useState, useEffect } from 'react';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import client from './contentfulConfig';
 
 const ContentDisplay = () => {
@@ -21,7 +22,7 @@ const ContentDisplay = () => {
           }
 
           if (response.fields.rich) {
-            newContent.rich = response.fields.rich;
+            newContent.rich = documentToReactComponents(response.fields.rich);
           }
 
           setContent(newContent);
@@ -39,7 +40,7 @@ const ContentDisplay = () => {
   return (
     <div>
       <p>Fly: {typeof content.fly === 'object' ? JSON.stringify(content.fly) : content.fly}</p>
-      <p>Rich: {typeof content.rich === 'object' ? JSON.stringify(content.rich) : content.rich}</p>
+      <div>Rich: {content.rich}</div>
     </div>
   );
 };
