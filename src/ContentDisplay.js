@@ -9,8 +9,8 @@ const ContentDisplay = () => {
       try {
         const response = await client.getEntry('3jhKR5PJNniuvqy8882hYU');
         setContent({
-          fly: response.fields['fly']['en-US'], // Assurez-vous d'utiliser la locale correcte
-          rich: response.fields['rich']['en-US'], // Assurez-vous d'utiliser la locale correcte
+          fly: response.fields['fly'], // Assurez-vous d'utiliser la locale correcte
+         
         });
       } catch (error) {
         console.error('Error fetching Contentful content:', error);
@@ -23,7 +23,7 @@ const ContentDisplay = () => {
   return (
     <div>
       <p>Fly: {content.fly}</p>
-      <p>Rich: {content.rich}</p>
+     
     </div>
   );
 };
