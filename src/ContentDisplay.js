@@ -13,7 +13,7 @@ const ContentDisplay = () => {
         const response = await client.getEntry('helloWorld'); // Assurez-vous de l'ID correct de votre entrée
         console.log('Contentful response:', response);
 
-        setContent(response.fields.rich); // Assurez-vous que 'en-US' est correct pour votre locale
+        setContent(response.fields.3jhKR5PJNniuvqy8882hYU); // Assurez-vous que 'en-US' est correct pour votre locale
       } catch (error) {
         console.error('Error fetching Contentful content:', error);
       }
