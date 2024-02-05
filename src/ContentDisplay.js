@@ -8,12 +8,8 @@ const ContentDisplay = () => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        console.log('Fetching Contentful content...');
-        
-        const response = await client.getEntry('helloWorld'); // Assurez-vous de l'ID correct de votre entrée
-        console.log('Contentful response:', response);
-
-        setContent(response.fields.3jhKR5PJNniuvqy8882hYU); // Assurez-vous que 'en-US' est correct pour votre locale
+        const response = await client.getEntry('3jhKR5PJNniuvqy8882hYU'); // Utilisez l'ID correct de votre entrée
+        setContent(response.fields['fly']['en-US']); // Assurez-vous que 'en-US' est correct pour votre locale
       } catch (error) {
         console.error('Error fetching Contentful content:', error);
       }
@@ -30,4 +26,3 @@ const ContentDisplay = () => {
 };
 
 export default ContentDisplay;
-
