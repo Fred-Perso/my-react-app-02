@@ -9,7 +9,7 @@ const ContentDisplay = () => {
     const fetchContent = async () => {
       try {
         const response = await client.getEntry('3jhKR5PJNniuvqy8882hYU'); // Utilisez l'ID correct de votre entrée
-        setContent(response.fields['helloWorld']); 
+        setContent(response.fields['fly']); 
         } catch (error) {
         console.error('Error fetching Contentful content:', error);
       }
