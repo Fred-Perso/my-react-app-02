@@ -12,7 +12,7 @@ const ContentDisplay = () => {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const response = await client.getEntry('3jhKR5PJNniuvqy8882hYU');
+        const response = await client.getEntry('59J3BhU9dyWokE1UcnG7Z5');
 
         if (response.fields) {
           const newContent = {};
